@@ -1,0 +1,18 @@
+services:
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    environment:
+      TZ: Europe/Copenhagen
+      WATCHTOWER_POLL_INTERVAL: 300       # Poll interval in seconds
+      WATCHTOWER_INCLUDE_STOPPED: 1       # Include stopped containers
+      #WATCHTOWER_REVIVE_STOPPED: 1       # Restart stopped containers
+      WATCHTOWER_CLEANUP: 1               # Delete unused image
+      WATCHTOWER_LABEL_ENABLE: 1          # Only include containers with enable label
+      WATCHTOWER_LIFECYCLE_HOOKS: 1       # Enable pre/post-update scripts
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ~/.docker/config.json:/config.json:ro
+    labels:
+      com.centurylinklabs.watchtower.enable: true

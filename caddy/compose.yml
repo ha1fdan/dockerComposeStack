@@ -1,0 +1,24 @@
+services:
+  caddy:
+    build: .
+    restart: always
+    container_name: caddy
+    ports:
+      - 80:80
+      - 443:443
+    environment:
+      - TZ=Europe/Copenhagen
+      - CADDY_INGRESS_NETWORKS=proxy
+      - CADDY_DOCKER_CADDYFILE_PATH=/data/Caddyfile
+    env_file:
+      - .env
+    networks:
+      - proxy
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./data:/data
+
+
+networks:
+  proxy: #docker network create proxy
+    external: true

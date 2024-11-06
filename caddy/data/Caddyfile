@@ -1,0 +1,15 @@
+{
+    email {env.ACME_EMAIL}
+    acme_dns cloudflare {env.CLOUDFLARE_APIKEY}
+    log {
+        format console
+    }
+    
+    servers {
+        trusted_proxies cloudflare {
+            interval 12h
+            timeout 30s
+        }
+    }
+
+}

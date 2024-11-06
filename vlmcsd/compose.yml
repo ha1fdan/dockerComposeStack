@@ -1,0 +1,7 @@
+services:
+    kms:
+        ports:
+            - 1688:1688
+        container_name: kms
+        restart: always
+        build: .
