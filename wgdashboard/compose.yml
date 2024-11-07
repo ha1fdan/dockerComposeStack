@@ -27,3 +27,7 @@ services:
       caddy: "${DASHBOARD_DOMAIN}"
       caddy.reverse_proxy: "{{upstreams 10086}}"
       com.centurylinklabs.watchtower.enable: true
+  
+networks:
+  proxy:
+    external: true
