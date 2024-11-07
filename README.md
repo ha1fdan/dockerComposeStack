@@ -23,9 +23,16 @@
 1. `docker compose up -d`
 
 
-## wgdashboard
+## wg-easy
 
-1. Edit/create `.env` file
-2. Point a A record to your server
-1. Open port 51820-51830 in your firewall
-2. `docker compose up -d`
+1. Create a bcrypt password:
+    ```
+    docker run -it ghcr.io/wg-easy/wg-easy wgpw
+    Enter your password:      // hidden prompt, type in your password
+    PASSWORD_HASH='$2b$12$coPqCsPtcFO.Ab99xylBNOW4.Iu7OOA2/ZIboHN6/oyxca3MWo7fW'
+    ```
+
+2. Edit/create `.env` file
+3. Point a A record to your server
+4. Open port 51820 in your firewall
+5. `docker compose up -d`
