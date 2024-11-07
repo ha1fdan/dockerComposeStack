@@ -2,6 +2,6 @@ services:
     kms:
         ports:
             - 1688:1688
-        container_name: kms
+        container_name: vlmcsd
         restart: always
         build: .
