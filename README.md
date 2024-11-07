@@ -21,3 +21,11 @@
 ## Watchtower
 
 1. `docker compose up -d`
+
+
+## wgdashboard
+
+1. Edit/create `.env` file
+2. Point a A record to your server
+1. Open port 51820-51830 in your firewall
+2. `docker compose up -d`
